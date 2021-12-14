@@ -1,8 +1,9 @@
 import { updateGround, setupGround } from './ground.js'
 import { updateDino, setupDino } from './dino.js'
+import { updateCactus, setupCactus } from './cactus.js'
 
 const WORLD_WIDTH = 100
-const WORLD_HEIGHT = 30 
+const WORLD_HEIGHT = 30
 const SPEED_SCALE_INC = 0.0001
 
 const worldElem = document.querySelector('[data-world]')
@@ -28,6 +29,7 @@ function update(time) {
   const delta = time - lastTime
   updateGround(delta, speedScale)
   updateDino(delta, speedScale)
+  updateCactus(delta, speedScale)
   updateSpeedScale(delta)
   updateScore(delta)
 
@@ -45,6 +47,7 @@ function handleStart() {
   score = 0
   setupGround()
   setupDino()
+  setupCactus()
   startScreenElem.classList.add('hide')
   window.requestAnimationFrame(update)
 }
@@ -65,4 +68,3 @@ function setPixelToWorldScale() {
   worldElem.style.width = `${WORLD_WIDTH * worldToPixelScale}px`
   worldElem.style.height = `${WORLD_HEIGHT * worldToPixelScale}px`
 }
-
