@@ -63,3 +63,11 @@ function onJump(e) {
   yVelocity = JUMP_SPEED
   isJumping = true
 }
+
+export function getDinoRect() {
+  return dinoElem.getBoundingClientRect()
+}
+
+export function setDinoLose() {
+  dinoElem.src = 'images/dino-lose.png'
+}

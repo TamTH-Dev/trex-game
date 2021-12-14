@@ -7,6 +7,7 @@ import {
 const SPEED = 0.05
 const CACTUS_INTERVAL_MIN = 500
 const CACTUS_INTERVAL_MAX = 2000
+
 const worldElem = document.querySelector('[data-world]')
 
 let nextCactusTime
@@ -47,4 +48,10 @@ function createCactus() {
 
 function createRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+export function getCactusRects() {
+  return [...document.querySelectorAll('[data-cactus]')].map(cactus =>
+    cactus.getBoundingClientRect()
+  )
 }
